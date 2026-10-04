@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090f">
+
+<title>Our Story ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #08080d;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ================= OPENING ================= */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at center,
+        #321322 0%,
+        #130b12 45%,
+        #050509 100%);
+
+    transition: 1.2s ease;
+}
+
+#opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-small {
+    color: #ff91ad;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.opening-title {
+    font-size: clamp(50px, 12vw, 100px);
+    font-weight: normal;
+}
+
+.opening-title span {
+    color: #ff4f81;
+}
+
+.opening-text {
+    max-width: 550px;
+    color: #c7c7cf;
+    line-height: 1.8;
+    margin: 25px 0 40px;
+}
+
+.open-button {
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);
+    color: white;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.open-button:hover {
+    background: #ff4f81;
+    transform: scale(1.06);
+}
+
+
+/* ================= MUSIC ================= */
+
+.music-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 5000;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.2);
+
+    background: rgba(0,0,0,.5);
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ================= SECTIONS ================= */
+
+section {
+    min-height: 100vh;
+    padding: 90px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    flex-direction: column;
+
+    background:
+        radial-gradient(circle at center,
+        #2b111d,
+        #08080d 65%);
+}
+
+.small-heading {
+    color: #ff91ad;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 13vw, 130px);
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #ff4f81;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #c7c7cf;
+    line-height: 1.9;
+}
+
+
+/* ================= COUNTER ================= */
+
+.counter-section {
+    flex-direction: column;
+}
+
+.counter-section h2 {
+    font-size: clamp(32px, 6vw, 55px);
+    font-weight: normal;
+    margin-bottom: 45px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 100px;
+    padding: 25px 10px;
+
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+}
+
+.number {
+    color: #ff4f81;
+    font-size: 34px;
+}
+
+.label {
+    color: #aaa;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+
+/* ================= STORY ================= */
+
+.story {
+    background: #09090e;
+}
+
+.story-box {
+    max-width: 750px;
+}
+
+.story h2 {
+    font-size: clamp(35px, 7vw, 55px);
+    font-weight: normal;
+    margin-bottom: 35px;
+}
+
+.story p {
+    color: #c7c7cf;
+    line-height: 2;
+    font-size: 17px;
+}
+
+
+/* ================= MEMORIES ================= */
+
+.memories {
+    flex-direction: column;
+}
+
+.memories h2 {
+    font-size: clamp(35px, 7vw, 55px);
+    font-weight: normal;
+    margin-bottom: 45px;
+}
+
+.memory-grid {
+    width: min(950px, 100%);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.memory {
+    min-height: 190px;
+
+    padding: 25px;
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 22px;
+
+    transition: .4s;
+}
+
+.memory:hover {
+    transform: translateY(-8px);
+    border-color: #ff4f81;
+}
+
+.memory-number {
+    color: #ff4f81;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.memory h3 {
+    margin-bottom: 10px;
+}
+
+.memory p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ================= PHOTOS ================= */
+
+.photos {
+    flex-direction: column;
+}
+
+.photos h2 {
+    font-size: clamp(35px, 7vw, 55px);
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.photo-grid {
+    width: min(1000px, 100%);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.photo {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #15151c;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: .6s;
+}
+
+.photo:hover img {
+    transform: scale(1.08);
+}
+
+
+/* ================= CINEMATIC SECRET ================= */
+
+.secret-section {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at center,
+        #24101a 0%,
+        #08080d 55%,
+        #000000 100%);
+
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+}
+
+
+/* Soft background glow */
+
+.secret-section::before {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(255, 79, 129, 0.12);
+
+    filter: blur(100px);
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+/* Each secret screen */
+
+.secret-screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    z-index: 2;
+}
+
+.secret-screen.active {
+    display: flex;
+}
+
+
+/* Opening lock */
+
+.secret-lock {
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation: floating 2s ease-in-out infinite;
+}
+
+
+/* Opening question */
+
+.secret-screen h2 {
+    font-size: clamp(28px, 5vw, 55px);
+
+    line-height: 1.3;
+
+    font-weight: normal;
+
+    max-width: 800px;
+
+    margin-bottom: 40px;
+}
+
+
+/* Start button */
+
+.secret-start-btn {
+    padding: 15px 35px;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: .4s;
+}
+
+.secret-start-btn:hover {
+    transform: scale(1.08);
+
+    background: #ff4f81;
+}
+
+
+/* ================= COUNTDOWN ================= */
+
+#countdownNumber {
+    font-size: clamp(110px, 25vw, 250px);
+
+    font-weight: normal;
+
+    color: #ff4f81;
+
+    text-shadow:
+        0 0 20px rgba(255,79,129,.5),
+        0 0 60px rgba(255,79,129,.2);
+
+    animation: countdownAnimation 1s ease;
+}
+
+
+/* ================= QUESTION ================= */
+
+.question-heart {
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+#questionScreen h1 {
+    font-size: clamp(30px, 6vw, 65px);
+
+    line-height: 1.25;
+
+    font-weight: normal;
+
+    max-width: 900px;
+}
+
+
+/* ================= ANSWER BUTTONS ================= */
+
+.answer-buttons {
+    display: flex;
+
+    gap: 20px;
+
+    margin-top: 45px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.answer-buttons button {
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .35s;
+}
+
+
+/* YES */
+
+.yes-btn {
+    background: #ff4f81;
+
+    color: white;
+
+    border: none;
+
+    box-shadow:
+        0 0 20px rgba(255,79,129,.25);
+}
+
+
+/* Obviously */
+
+.obvious-btn {
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.4);
+}
+
+.answer-buttons button:hover {
+    transform: scale(1.1);
+}
+
+
+/* ================= FINAL SECRET ================= */
+
+.final-heart {
+    font-size: 100px;
+
+    margin-bottom: 25px;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+#finalSecret h1 {
+    font-size: clamp(32px, 6vw, 65px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+#finalSecret p {
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #ddd;
+}
+
+.forever {
+    margin-top: 35px;
+
+    font-size: 22px;
+
+    color: #ff91ad;
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+@keyframes countdownAnimation {
+
+    0% {
+        opacity: 0;
+
+        transform: scale(1.8);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* ================= SECRET MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .secret-screen h2 {
+        font-size: 30px;
+    }
+
+    #questionScreen h1 {
+        font-size: 32px;
+    }
+
+    .answer-buttons {
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 300px;
+    }
+
+    .answer-buttons button {
+        width: 100%;
+    }
+
+}
+
+/* ================= FINAL ================= */
+
+.final {
+    flex-direction: column;
+
+    background:
+        radial-gradient(circle at center,
+        #351321,
+        #08080d 70%);
+}
+
+.final h2 {
+    font-size: clamp(50px, 11vw, 110px);
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.final h2 span {
+    color: #ff4f81;
+}
+
+.final p {
+    max-width: 600px;
+    color: #aaa;
+    line-height: 1.9;
+}
+
+
+/* ================= HEARTS ================= */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+
+    color: #ff4f81;
+
+    pointer-events: none;
+
+    z-index: 1000;
+
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) scale(.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px) {
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .time-box {
+        width: 78px;
+    }
+
+    .number {
+        font-size: 25px;
+    }
+
+    .story p {
+        font-size: 15px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     🔴 1. OPENING SCREEN
+     
+     CHANGE THE TEXT BELOW
+====================================================== -->
+
+<div id="opening">
+
+    <div class="opening-small">
+        A little something for you
+    </div>
+
+    <div class="opening-title">
+        For <span>YOU</span> ❤️
+    </div>
+
+    <div class="opening-text">
+
+         I Loveeeeeeee Youuuuuuuuuuuu Soooooooooo Muchhhhhhhhhhhhh bhundiyeeeeeeeeeeeeeee.
+
+        <br><br>
+
+        
+        "I could have just said Happy 8 Months...
+        but you deserve something better."
+
+    </div>
+
+    <button class="open-button" onclick="startWebsite()">
+        Open ❤️
+    </button>
+
+</div>
+
+
+
+<!-- ======================================================
+     🔴 2. MUSIC
+     
+     Put your music file in the SAME folder.
+     
+     Example:
+     music.mp3
+====================================================== -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-button" onclick="toggleMusic()">
+    🎵
+</button>
+
+
+
+<!-- ======================================================
+     3. HERO
+====================================================== -->
+
+<section class="hero">
+
+    <div class="small-heading">
+        Happy 
+    </div>
+
+    <h1>
+        <span>8</span> Months
+    </h1>
+
+    <p>
+
+         Of  Togatherness Jaan.
+
+        <br><br>
+
+        
+
+        "Eight months ago,I accepted ur proposal
+		and that was the bestesttttt
+		decision of my life ."
+
+    </p>
+
+</section>
+
+
+
+<!-- ======================================================
+     4. LIVE RELATIONSHIP COUNTER
+
+     🔴 IMPORTANT:
+     Change this date.
+
+     Format:
+
+     YEAR, MONTH-1, DAY
+
+     Example:
+     October 4 2025
+
+     new Date(2025, 9, 4)
+====================================================== -->
+
+<section class="counter-section">
+
+    <h2>
+        Time since it all began...
+    </h2>
+
+    <div class="counter">
+
+        <div class="time-box">
+            <div class="number" id="months">0</div>
+            <div class="label">Months</div>
+        </div>
+
+        <div class="time-box">
+            <div class="number" id="days">0</div>
+            <div class="label">Days</div>
+        </div>
+
+        <div class="time-box">
+            <div class="number" id="hours">0</div>
+            <div class="label">Hours</div>
+        </div>
+
+        <div class="time-box">
+            <div class="number" id="minutes">0</div>
+            <div class="label">Minutes</div>
+        </div>
+
+        <div class="time-box">
+            <div class="number" id="seconds">0</div>
+            <div class="label">Seconds</div>
+        </div>
+
+    </div>
+
+    <p style="color:#777;margin-top:30px;">
+        5-feb-2026 
+    </p>
+
+</section>
+
+
+
+<!-- ======================================================
+     5. YOUR STORY
+====================================================== -->
+
+<section class="story">
+
+    <div class="story-box">
+
+        <h2>
+            It was never just 8 months.
+        </h2>
+
+        <p>
+
+             The best time of my life❤️🧿
+
+            <br><br>
+
+            These nine months were the best time of my life 
+			that i spent with you 
+			thanks alot meri kakkiyee for coming in my life 😘❤️❤️🫂
+
+            19-sept-2025 de din mai apni  bhundiii 😘😘 nu milya 
+			appa dona ne bht mje kre odn fr hauli hauli apa glla batta shuru kriya
+			best part from that time  was jdo apa dono kathe gane sunde hunde c 
+			tu mnu pushdi hundi c mai kinu imagine krda 😂😂 starting ch ta ni 
+			pr ha hafte k tak mai gane sunde hoye tnu apne nl imagine krk bht khush hunda c ❤️❤️ 
+			bs odo to hi tere nl pyaar hona shuru hogya t o ajj v vadh hi reha
+            baki thdia bht miss understandings v hogia c starting ch 😅😅 u know 
+            rishta glt bngya c 😅😅😂😂 baki hun t bht vdia hogya rabb kre eda hi hasde 
+            khush rhiye apa ladayia kriye fr m tnu mnava 😂❤️ ha tu v mnoni a pr 5-10 mint baad mnu hi 
+            mnona painda pr vdia sbb ❤️❤️ eda hi chlda rve t rabb kre eh 8 mahinea da safr 800 saal tk chle 
+            hamesha kathe rhiyee ek duje de nal support kriye ek dusre nu t apne supne ekathe poore kariye 🧿🫂🫂❤️❤️❤️
+            once again, Happy 8 Months Of Togatherness ❤️🧿🧿🫂🫂😘😘😘			
+			
+
+            <br><br>
+
+            
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     6. 8 MEMORIES
+====================================================== -->
+
+<section class="memories">
+
+    <h2>
+        8 Months.
+        <span style="color:#ff4f81;">8 Memories.</span>
+    </h2>
+
+    <div class="memory-grid">
+
+
+        <div class="memory">
+
+            <div class="memory-number">01</div>
+
+            <h3> Eh Gall Personal Ch V Ho Sakdi C </h3>
+
+            <p>
+                one of the best memory eh o yaad a 
+				jitho apni gall baat shuru hoyi c
+				es lyi this is my fav one 
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">02</div>
+
+            <h3> Ludo </h3>
+
+            <p>
+                bht khedi a ludo v apa sweetest thing jo apa starting ch krde c
+				tu pta ni ki jaadoo krdi c har vaar jitt jandi c bandriyeee 😅😅😘❤️🧿
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">03</div>
+
+            <h3> Diwali mela </h3>
+
+            <p>
+                one of the best memory till now meri Personal fav a
+				phli vaar apa nede aye c ek dusre lyi pyaar mehsoos krya c
+			    ek odn di best chij apni matching hoyi c jo kya hi baat aee 
+				bht sira din c ❤️❤️🧿🧿
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">04</div>
+
+            <h3> Next janam </h3>
+
+            <p>
+                eh v bht vdia yaad a jo sari umr yaad rhu mnu tu gill banke auna c 😂😂
+				bht vdia c etho ek duje lyi feelings da pta lg gya c apa nu ❤️❤️ bht sohna tym c eh v
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">05</div>
+
+            <h3> 5 feb </h3>
+
+            <p>
+                eh ta sb to ghiant aa jitho sb start hoya c 🧿❤️ tera purpose krn da style 
+				bht ghaint c khndi mnu t pyaar haiga bht a mai t dsta tu v dsde j haiga t ❤️😂🧿😘😘😘 
+				fr jdo m kya k ghrde nai mn ne galla kdiya c jo hayee meri bhundi 😘😘😂😂😂🧿🧿❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂 
+				it was the best day of my life 
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">06</div>
+
+            <h3> 24 March , 4 June and more</h3>
+
+            <p>
+                eh saria dates yaad hi hongia thnu jdo jdo apa ek duje de hor close aye 
+				❤️ phla special fr special ultra pro max fr 4 june nu last te koi ksr ni rhi  😂❤️ 
+				tera eh dialouge jine bht kj kraya these are also the best memories kyonki apa ek 
+				dusre de nede ayee c ehna sb ch 
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">07</div>
+
+            <h3> Nazar utarna </h3>
+
+            <p>
+                tere lyi pta nai pr mere lyi eh best memory a jo mai kde ni bhul skda ❤️🧿🫂 phla v dsya c mai
+				eh tuhanu meri dadi to baad u are the first person jine meri nazar utari mere lyi eh thdi emotional v a
+				ese krk te best v ❤️❤️🫂🫂 hje v mnu tera face yaad a oda hi jdo nazar utardi c meri tu 😘😘 etho eh v pta lgda 
+				k tu meri kinni fikar krdi a ❤️❤️ thankuu jaanne ina pyaar krn layi mnu ❤️❤️ i love u sooo muchhhhhh 🧿🫂❤️❤️😘😘😘😘😘😘😘😘
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">08</div>
+
+            <h3> Teacher bn k call krna</h3>
+
+            <p>
+                jdo shuttia ch mnu uni bulon layi ghre madam bann k call kri c jdo 😂😂❤️ 
+				bht sira c apa eh fr jo uni aa k apa oat kol garden ch niche baith k nishane londe c 
+				rice khade c jo tere htha nl best one ❤️🧿 te lemon peena reel vang fr jdo mere shoes paa k 
+				firdi c mnu pon ni c dindi shoes jo v kj apa odn hrkta krde c othe that day was the best one 
+				eh do wakhre dina da c memory pr shuttia ch jede v 2-3 din aya c all were the best t fr
+				mnu kada v lya k ditta  c odo apne htha nl paya c jo ajj tak ni laya m te na hi utru ❤️❤️❤️🧿🧿🧿😘😘😘😘😘😘😘 
+				all the days were  best jaan once again i love u buggdiyeeeee ❤️❤️❤️❤️❤️🫂🧿😘😘😘
+            </p>
+
+        </div>
+
+
+        
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     8. SECRET REVEAL
+====================================================== -->
+<!-- ================= SECRET REVEAL ================= -->
+<section class="secret-section" id="secret">
+
+    <!-- Step 1: Intro -->
+    <div id="secretIntro" class="secret-screen active">
+        <div class="secret-lock">🔐</div>
+
+        <h2>There’s one question<br>I've been wanting to ask you…</h2>
+
+        <button class="secret-start-btn" onclick="startSecret()">
+            I'm listening ❤️
+        </button>
+    </div>
+
+
+    <!-- Step 2: Countdown -->
+    <div id="countdownScreen" class="secret-screen">
+        <div id="countdownNumber">3</div>
+    </div>
+
+
+    <!-- Step 3: Question -->
+    <div id="questionScreen" class="secret-screen">
+
+        <div class="question-heart">❤️</div>
+
+        <h1>Will you make many more<br>memories with me?</h1>
+
+        <div class="answer-buttons">
+
+            <button class="yes-btn" onclick="answerYes()">
+                YES 🥹❤️
+            </button>
+
+            <button class="obvious-btn" onclick="answerObviously()">
+                Obviously 🙄💕
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Step 4: Final Reveal -->
+    <div id="finalSecret" class="secret-screen">
+
+        <div class="final-heart">💖</div>
+
+        <h1>I knew you'd choose that. 😌❤️</h1>
+
+        <p>
+            And honestly...<br>
+            I hope we keep making memories<br>
+            for a very, very long time. ♾️
+        </p>
+
+        <div class="forever">8 months down...<br>so many more to go. ❤️</div>
+
+    </div>
+
+</section>
+
+    
+
+
+
+
+
+<!-- ======================================================
+     9. FINAL MESSAGE
+====================================================== -->
+
+<section class="final">
+
+    <div class="small-heading">
+        I LOVE YOUUU JAAN ❤️
+    </div>
+
+    <h2>
+        8 months down.
+        <br>
+        <span>More to come.</span>
+    </h2>
+
+    <p>
+
+        
+
+        <br><br>
+
+        
+
+        " These eight months were the best time of mah life ❤️🧿,
+        And i want to spend rest of mah life with you like this,
+		And make all the dreams come true that we dreamed of ,
+		ONCE AGIAN "I LOVE U MERI BHUNDIYEEEE ❤️😘😘❤️❤️❤️🧿🧿🫂🫂❤️❤️❤️" . "
+
+        <br><br>
+
+        ❤️
+
+    </p>
+
+</section>
+
+
+
+<script>
+
+/* ========================================================
+   🔴 CHANGE YOUR START DATE HERE
+======================================================== */
+
+// Example:
+// October 4, 2025 = new Date(2025, 9, 4)
+
+const startDate = new Date(2026, 1, 5);
+
+
+/* ========================================================
+   OPEN WEBSITE
+======================================================== */
+
+function startWebsite() {
+
+    document.getElementById("opening").classList.add("hide");
+
+    const music = document.getElementById("music");
+
+    music.play().catch(() => {});
+
+    createHearts();
+}
+
+
+/* ========================================================
+   MUSIC
+======================================================== */
+
+let musicPlaying = false;
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+
+    if (music.paused) {
+
+        music.play();
+        musicPlaying = true;
+
+    } else {
+
+        music.pause();
+        musicPlaying = false;
+
+    }
+}
+
+
+/* ========================================================
+   RELATIONSHIP COUNTER
+======================================================== */
+
+function updateCounter() {
+
+    const now = new Date();
+
+    let months =
+        (now.getFullYear() - startDate.getFullYear()) * 12
+        +
+        (now.getMonth() - startDate.getMonth());
+
+    let anniversary =
+        new Date(
+            startDate.getFullYear(),
+            startDate.getMonth() + months,
+            startDate.getDate()
+        );
+
+    if (anniversary > now) {
+        months--;
+        anniversary =
+            new Date(
+                startDate.getFullYear(),
+                startDate.getMonth() + months,
+                startDate.getDate()
+            );
+    }
+
+    const difference = now - anniversary;
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+    document.getElementById("months").textContent = months;
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+}
+
+setInterval(updateCounter, 1000);
+
+updateCounter();
+
+
+/* ================= SECRET REVEAL ================= */
+
+function showSecretScreen(screenId) {
+
+    const screens = document.querySelectorAll(".secret-screen");
+
+    screens.forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(screenId).classList.add("active");
+}
+
+
+/* Start the secret */
+
+function startSecret() {
+
+    showSecretScreen("countdownScreen");
+
+    let number = 3;
+
+    const countdown = document.getElementById("countdownNumber");
+
+    countdown.innerText = number;
+
+    const timer = setInterval(() => {
+
+        number--;
+
+        if (number > 0) {
+
+            countdown.innerText = number;
+
+            // Restart animation
+            countdown.style.animation = "none";
+            countdown.offsetHeight;
+            countdown.style.animation = "countdownAnimation 1s ease";
+
+        } else {
+
+            clearInterval(timer);
+
+            // Small pause before revealing question
+            setTimeout(() => {
+
+                showSecretScreen("questionScreen");
+
+            }, 700);
+
+        }
+
+    }, 1000);
+}
+
+
+/* YES button */
+
+function answerYes() {
+
+    showFinalSecret();
+
+}
+
+
+/* Obviously button */
+
+function answerObviously() {
+
+    showFinalSecret();
+
+}
+
+
+/* Final reveal */
+
+function showFinalSecret() {
+
+    showSecretScreen("finalSecret");
+
+}
+
+
+/* ========================================================
+   FLOATING HEARTS
+======================================================== */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (Math.random() * 20 + 12) + "px";
+
+    heart.style.animationDuration =
+        (Math.random() * 4 + 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 8000);
+}
+
+
+function createHearts() {
+
+    for (let i = 0; i < 15; i++) {
+
+        setTimeout(
+            createHeart,
+            i * 150
+        );
+
+    }
+}
+
+</script>
+
+</body>
+</html>
